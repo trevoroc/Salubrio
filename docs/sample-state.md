@@ -2,15 +2,15 @@
 {
   currentUser: {
     id: 1,
-    firstname: 'Trevor'
-    lastname: 'O\'Connor'
+    firstName: 'Trevor'
+    lastName: 'O\'Connor'
   },
   forms: {
     signUp: { errors: [] },
     logIn: { errors: [] }
   },
   feed: {
-    activities: {
+    workouts: {
       1: {
         id: 1
         userId: 1
@@ -19,6 +19,8 @@
         name: "Afternoon Run",
         time: 780000, // Time in ms
         distance: 7920, // Distance in feet
+        elevation: 200, // Net in feet
+        type: 'Run'
       }
     },
     routes: {
