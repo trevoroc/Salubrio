@@ -29,3 +29,23 @@ CSS styling:
 [schema]: ./schema.md
 
 ## Implementation Timeline
+
+### Phase 1: Backend setup and Front End User Authentication (1 day)
+
+**Objective:** Functioning Rails project with front-end Authentication
+
+### Phase 2: Workouts Model, API, and components (2 days)
+
+**Objective:** Workouts can be created, viewed, edited, and destroyed using the API.
+
+### Phase 3: Profile view page and Workout Feed (2 days)
+
+**Objective:** A user can view their profile page and examine their personal statistics through visual data representations
+
+### Phase 4: Routes Model, API, and components (3 days)
+
+**Objective:** Routes can be created, viewed, and associated with Workouts.
+
+### Phase 5: Splash page (2 days)
+
+**Objective:** The splash page will be beautifully styled, featuring demo animations and parallax scrolling.

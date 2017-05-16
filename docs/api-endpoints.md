@@ -23,9 +23,9 @@
 - `GET /api/workouts`
   - accepts `user_id` query param to get workouts by user
 - `POST /api/workouts`
-- `GET /api/workouts/:id` (if I get there)
-- `PATCH /api/workouts/:id` (if I get there)
-- `DELETE /api/workouts/:id` (if I get there)
+- `GET /api/workouts/:id`
+- `PATCH /api/workouts/:id`
+- `DELETE /api/workouts/:id`
 
 ### Routes
 
