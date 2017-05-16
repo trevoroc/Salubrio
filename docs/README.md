@@ -27,3 +27,5 @@ CSS styling:
 [sample-state]: ./sample-state.md
 [api-endpoints]: ./api-endpoints.md
 [schema]: ./schema.md
+
+## Implementation Timeline
