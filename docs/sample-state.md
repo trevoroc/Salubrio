@@ -5,10 +5,9 @@
     firstName: 'Trevor'
     lastName: 'O\'Connor'
   },
-  forms: {
-    signUp: { errors: [] },
-    logIn: { errors: [] }
-  },
+  errors: [
+    'Username can\'t be blank'
+  ],
   feed: {
     workouts: {
       1: {
