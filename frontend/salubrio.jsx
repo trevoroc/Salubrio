@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // TODO: Code below this line for testing only
-import { createUser } from './util/api_util';
+import { createUser } from './actions/user_actions';
 window.createUser = createUser;
 // TODO: Code aboe this line for testing only
 
