@@ -9,7 +9,7 @@ CSS styling:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and demo login
-- [ ] Creation of new running routes
+- [ ] Creation of new routes
 - [ ] Logging new workouts
 - [ ] A scrolling feed where users can view the logged activities of others
 - [ ] A personal profile featuring beautiful visuals of the user's logged data
