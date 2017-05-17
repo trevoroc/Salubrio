@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 
 // TODO: Code below this line for testing only
-import { createUser } from './actions/session_actions';
-import { login, logout } from './util/api_util';
+import { createUser, login, logout } from './actions/session_actions';
 window.createUser = createUser;
 window.login = login;
 window.logout = logout;

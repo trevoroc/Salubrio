@@ -7,13 +7,13 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render '/api/users/show'
     else
-      # TODO: Check that it's ok to return a 200 here
-      render json: ['The username or password did not match'], status: 200
+      # TODO: Make sure to have an error handling callback on the frontend
+      render json: ['The username or password did not match'], status: 422
     end
   end
 
   def destroy
     logout
-    render json: 'You logged out!', status: 200
+    render json: ['You logged out!'], status: 200
   end
 end
