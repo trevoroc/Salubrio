@@ -1,6 +1,6 @@
 import * as APIUtil from '../util/api_util';
 
-export const CREATE_USER = 'CREATE_USER';
+export const SIGN_UP = 'SIGN_UP';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
@@ -15,8 +15,8 @@ export const logoutUser = () => ({
 });
 
 // TODO: Add error handling callback
-export const createUser = user => dispatch => (
-  APIUtil.createUser(user)
+export const signup = user => dispatch => (
+  APIUtil.signup(user)
     .then(createdUser => dispatch(receiveUser(createdUser)))
 );
 
