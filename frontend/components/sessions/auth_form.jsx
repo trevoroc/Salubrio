@@ -42,7 +42,7 @@ class AuthForm extends React.Component {
           onChange={ this.update('password') }
           value={ this.state.password }></input>
 
-        <button onClick={ this.handleSubmit }></button>
+        <button onClick={ this.handleSubmit }>{ buttonText }</button>
       </form>
     );
   }
