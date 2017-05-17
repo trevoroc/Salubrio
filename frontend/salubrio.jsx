@@ -12,10 +12,20 @@ window.login = login;
 window.logout = logout;
 // TODO: Code above this line for testing only
 
+const initialState = {
+  session: {
+    currentUser: {
+      id: null,
+      username: null
+    },
+    errors: []
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   Modal.setAppElement(document.body);
-  const store = configureStore({ currentUser: {} });
+  const store = configureStore(initialState);
   window.store = store; // TODO: Testing only
   ReactDOM.render(<Root store={ store } />, root);
 });
