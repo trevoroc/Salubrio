@@ -5,7 +5,10 @@ import configureStore from './store/store';
 
 // TODO: Code below this line for testing only
 import { createUser } from './actions/session_actions';
+import { login, logout } from './util/api_util';
 window.createUser = createUser;
+window.login = login;
+window.logout = logout;
 // TODO: Code above this line for testing only
 
 document.addEventListener('DOMContentLoaded', () => {

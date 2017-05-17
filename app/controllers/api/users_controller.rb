@@ -3,10 +3,10 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      # login(@user)
+      login(@user)
       render :show # TODO: May need to update this later
     else
-      render json: @user.errors.full_messages, status: 422
+      render_errors @user
     end
   end
 
@@ -15,7 +15,7 @@ class Api::UsersController < ApplicationController
     if @user.update_attributes(user_params)
       render :show # TODO: May need to update this later
     else
-      render json: @user.errors.full_messages, status: 422
+      render_errors @user
     end
   end
 
@@ -23,5 +23,9 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username, :password) # TODO: May need to add more later
+  end
+
+  def render_errors(user)
+    render json: user.errors.full_messages, status: 422
   end
 end
