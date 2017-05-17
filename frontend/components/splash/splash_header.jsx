@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
+import Modal from 'react-modal';
 
 import { AuthRoute, ProtectedRoute } from '../../util/route_util';
 import AuthFormContainer from '../sessions/auth_form_container';
@@ -7,16 +8,40 @@ import AuthFormContainer from '../sessions/auth_form_container';
 class SplashHeader extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      modalOpen: false,
+      formType: ''
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  openModal(formType) {
+    return e => {
+      e.preventDefault();
+
+      this.setState({ modalOpen: true, formType });
+    };
+  }
+
+  closeModal() {
+    this.setState({ modalOpen: false });
   }
 
   render() {
     return (
       <header>
-        <AuthRoute exact path="/signup" component={ AuthFormContainer } />
-        <AuthRoute exact path="/login" component={ AuthFormContainer } />
-        <Link to="/signup">Sign Up</Link>
+        <button onClick={ this.openModal('signup') }>Sign Up</button>
         <br></br>
-        <Link to="/login">Log In</Link>
+        <button onClick={ this.openModal('login') }>Log In</button>
+
+        <Modal
+          isOpen={ this.state.modalOpen }
+          onRequestClose={ this.closeModal }
+          contentLabel={ 'AuthModal' }>
+          <AuthFormContainer formType={ this.state.formType }/>
+        </Modal>
       </header>
     );
   }

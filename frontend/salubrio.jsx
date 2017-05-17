@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 
 import configureStore from './store/store';
 import Root from './components/root';
@@ -13,6 +14,7 @@ window.logout = logout;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
+  Modal.setAppElement(document.body);
   const store = configureStore({ currentUser: {} });
   window.store = store; // TODO: Testing only
   ReactDOM.render(<Root store={ store } />, root);
