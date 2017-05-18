@@ -1,5 +1,12 @@
 # Salubrio
 
+[Heroku Link][heroku]
+
+[Trello Link][trello]
+
+[heroku]: https://salubrio.herokuapp.com/
+[trello]: https://trello.com/b/6mRePnRP/salubrio
+
 ## Minimum Viable Product
 
 Salubrio is a web application inspired by Strava developed using Ruby on Rails
