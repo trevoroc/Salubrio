@@ -30,6 +30,28 @@ class SplashHeader extends React.Component {
   }
 
   render() {
+    const modalStyle = {
+      overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(58, 60, 69, 0.92)',
+        zIndex: 10
+      },
+      content: {
+        position: 'fixed',
+        top: '100px',
+        left: '33%',
+        right: '33%',
+        bottom: '150px',
+        border: '1px solid #ccc',
+        padding: '20px',
+        zIndex: 11
+      }
+    };
+
     return (
       <header className="splash-header">
         <button onClick={ this.openModal('signup') }>Sign Up</button>
@@ -39,7 +61,8 @@ class SplashHeader extends React.Component {
         <Modal
           isOpen={ this.state.modalOpen }
           onRequestClose={ this.closeModal }
-          contentLabel={ 'AuthModal' }>
+          contentLabel={ 'AuthModal' }
+          style={ modalStyle }>
           <AuthFormContainer formType={ this.state.formType }/>
         </Modal>
       </header>
