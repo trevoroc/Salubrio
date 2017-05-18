@@ -31,7 +31,7 @@ class SplashHeader extends React.Component {
 
   render() {
     return (
-      <header>
+      <header className="splash-header">
         <button onClick={ this.openModal('signup') }>Sign Up</button>
         <br></br>
         <button onClick={ this.openModal('login') }>Log In</button>
