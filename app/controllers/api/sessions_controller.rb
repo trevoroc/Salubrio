@@ -7,7 +7,6 @@ class Api::SessionsController < ApplicationController
       login(@user)
       render '/api/users/show'
     else
-      # TODO: Make sure to have an error handling callback on the frontend
       render json: ['The username or password did not match'], status: 422
     end
   end

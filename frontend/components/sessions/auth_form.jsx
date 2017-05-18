@@ -25,6 +25,7 @@ class AuthForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.sendForm(this.state);
+    this.props.clearErrors();
   }
 
   renderErrors() {

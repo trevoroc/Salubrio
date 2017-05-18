@@ -25,14 +25,12 @@ export const clearErrors = () => ({
   type: CLEAR_ERRORS
 });
 
-// TODO: Add error handling callback
 export const signup = user => dispatch => (
   APIUtil.signup(user)
     .then(createdUser => dispatch(receiveUser(createdUser)),
           err => dispatch(receiveErrors(err.responseJSON)))
 );
 
-// TODO: Add error handling callback
 export const login = user => dispatch => (
   APIUtil.login(user).then(loggedInUser => dispatch(receiveUser(loggedInUser)),
                            err => dispatch(receiveErrors(err.responseJSON)))

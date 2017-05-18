@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       login(@user)
-      render :show # TODO: May need to update this later
+      render :show
     else
       render_errors @user
     end
@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      render :show # TODO: May need to update this later
+      render :show
     else
       render_errors @user
     end
@@ -22,7 +22,7 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password) # TODO: May need to add more later
+    params.require(:user).permit(:username, :password)
   end
 
   def render_errors(user)

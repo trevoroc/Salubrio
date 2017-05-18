@@ -14,7 +14,6 @@ const _emptyState = {
 
 const SessionReducer = (state = _emptyState, action) => {
   Object.freeze(state);
-  // console.log(action); // TODO: Delete when finished
   switch (action.type) {
     case SessionActions.RECEIVE_USER:
       return Object.assign({}, state, { currentUser: action.user });
