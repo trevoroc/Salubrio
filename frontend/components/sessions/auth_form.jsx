@@ -24,9 +24,7 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     this.props.sendForm(this.state);
-    // TODO: Push new page to history?
   }
 
   render() {
