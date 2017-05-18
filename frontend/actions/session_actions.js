@@ -3,6 +3,7 @@ import * as APIUtil from '../util/api_util';
 export const SIGN_UP = 'SIGN_UP';
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
 
@@ -18,6 +19,10 @@ export const logoutUser = () => ({
 export const receiveErrors = errors => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
 });
 
 // TODO: Add error handling callback

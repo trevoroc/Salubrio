@@ -20,13 +20,13 @@ class SplashHeader extends React.Component {
   openModal(formType) {
     return e => {
       e.preventDefault();
-
       this.setState({ modalOpen: true, formType });
     };
   }
 
   closeModal() {
     this.setState({ modalOpen: false });
+    this.props.clearErrors();
   }
 
   render() {
