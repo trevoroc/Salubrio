@@ -27,6 +27,18 @@ class AuthForm extends React.Component {
     this.props.sendForm(this.state);
   }
 
+  renderErrors() {
+    const errorList = this.props.errors.map((error, idx) => (
+      <li key={ idx }>{ error }</li>
+    ));
+
+    return (
+      <ul>
+        { errorList }
+      </ul>
+    );
+  }
+
   render() {
     const buttonText = (
       this.props.formType === 'login'
@@ -45,6 +57,8 @@ class AuthForm extends React.Component {
         <input type="password" placeholder="Password"
           onChange={ this.update('password') }
           value={ this.state.password }></input>
+
+        { this.renderErrors() }
 
         <button onClick={ this.handleSubmit }>{ buttonText }</button>
       </form>

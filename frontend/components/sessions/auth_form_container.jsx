@@ -4,7 +4,8 @@ import { signup, login } from '../../actions/session_actions';
 import AuthForm from './auth_form';
 
 const mapStateToProps = ({ session }) => ({
-  loggedIn: Boolean(session.currentUser.id)
+  loggedIn: Boolean(session.currentUser.id),
+  errors: session.errors
 });
 
 const mapDispatchToProps = (dispatch, { formType }) => {
