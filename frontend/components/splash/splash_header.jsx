@@ -47,7 +47,7 @@ class SplashHeader extends React.Component {
         right: '33%',
         bottom: '150px',
         border: '1px solid #ccc',
-        padding: '20px',
+        padding: 0,
         zIndex: 11
       }
     };

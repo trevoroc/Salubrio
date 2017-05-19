@@ -1,0 +1,36 @@
+@import "../base/fonts.scss";
+@import "../base/colors.scss";
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 60px;
+  align-items: center;
+
+  font-family: $cabin;
+  font-size: 16px;
+}
+
+.auth-form input {
+  width: calc(100% - 22px);
+
+  border: 1px solid lightgrey;
+
+  padding: 10px 10px;
+  margin: 10px 0;
+}
+
+.auth-form button {
+  width: 100%;
+
+  border-radius: 4px;
+
+  margin-top: 30px;
+  padding: 10px 0;
+
+  text-align: center;
+
+  color: white;
+  background-color: $kaiser-blue;
+}

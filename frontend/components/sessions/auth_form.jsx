@@ -50,7 +50,7 @@ class AuthForm extends React.Component {
     );
 
     return (
-      <form>
+      <form className="auth-form">
         <input type="text" placeholder="Username"
           onChange={ this.update('username') }
           value={ this.state.username }></input>
