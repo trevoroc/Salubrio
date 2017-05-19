@@ -3,8 +3,7 @@
   session: {
     currentUser: {
       id: 1,
-      firstName: 'Trevor',
-      lastName: 'O\'Connor'
+      username: 'trevor'
     },
     errors: [
       'Username can\'t be blank'
