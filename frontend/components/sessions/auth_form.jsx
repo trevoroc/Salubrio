@@ -1,3 +1,4 @@
+import { withRouter } from 'react-router-dom';
 import React from 'react';
 
 class AuthForm extends React.Component {
@@ -68,4 +69,4 @@ class AuthForm extends React.Component {
   }
 }
 
-export default AuthForm;
+export default withRouter(AuthForm);
