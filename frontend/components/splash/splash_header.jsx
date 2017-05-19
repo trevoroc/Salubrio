@@ -55,8 +55,8 @@ class SplashHeader extends React.Component {
     return (
       <header className="splash-header header-opaque">
         <h1>Salubrio</h1>
+
         <button onClick={ this.openModal('signup') }>Sign Up</button>
-        <br></br>
         <button onClick={ this.openModal('login') }>Log In</button>
 
         <Modal
