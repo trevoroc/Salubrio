@@ -6,23 +6,15 @@
   position: fixed;
 
   width: 100%;
-  height: 30px;
-
-  background-color: transparent;
+  height: 55px;
 
   top: 0px;
-  padding-top: 15px;
   justify-content: flex-end;
-}
-
-.splash-header-transparent {
-  background-color: transparent;
+  align-items: center;
 }
 
 .splash-header button {
   position: relative;
-  background-color: $kaiser-blue;
-  color: white;
 
   font-family: $cabin;
   font-size: 17px;
@@ -30,11 +22,35 @@
 
   border-radius: 5px;
 
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 8px;
   padding: 5px 30px;
+
+  height: 55%;
+}
+
+.splash-header button:hover {
+  cursor: pointer;
 }
 
 .splash-header button:last-of-type {
-  margin-right: 15px;
+  margin-right: 16px;
+}
+
+.header-opaque {
+  background-color: white
+}
+
+.header-opaque button {
+  background-color: $kaiser-blue;
+  color: white;
+
+}
+
+.header-transparent {
+  background-color: transparent;
+}
+
+.header-transparent button {
+  background-color: transparent;
+  color: black;
 }
