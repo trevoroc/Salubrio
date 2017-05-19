@@ -3,7 +3,17 @@ import thunk from 'redux-thunk';
 
 import RootReducer from '../reducers/root_reducer';
 
-const configureStore = (preLoadedState = {}) => (
+const initialState = {
+  session: {
+    currentUser: {
+      id: null,
+      username: null
+    },
+    errors: []
+  }
+};
+
+const configureStore = (preLoadedState = initialState) => (
   createStore(RootReducer, preLoadedState, applyMiddleware(thunk))
 );
 
