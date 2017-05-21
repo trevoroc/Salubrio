@@ -24,3 +24,12 @@ export const logout = () => (
     url: '/api/session'
   })
 );
+
+export const fetchWorkouts = userId => {
+  const data = userId ? { user_id: userId } : {};
+  return $.ajax({
+    type: 'GET',
+    url: '/api/workouts',
+    data
+  });
+};
