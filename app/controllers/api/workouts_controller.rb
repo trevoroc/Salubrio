@@ -5,7 +5,7 @@ class Api::WorkoutsController < ApplicationController
     if @workout.save
       render :show
     else
-      render json: @workout.errors.full_messages, status: 422
+      render_not_valid(@workout)
     end
   end
 
@@ -35,7 +35,7 @@ class Api::WorkoutsController < ApplicationController
     if @workout.update_attributes(workout_params)
       render :show
     else
-      render json: @workout.errors.full_messages, status: 404
+      render_not_valid(@workout)
     end
   end
 
@@ -65,5 +65,9 @@ class Api::WorkoutsController < ApplicationController
 
   def render_not_found
     render json: ['Workout does not exist.'], status: 404
+  end
+
+  def render_not_valid(workout)
+    render json: workout.errors.full_messages, status: 422
   end
 end

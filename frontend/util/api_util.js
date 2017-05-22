@@ -33,3 +33,11 @@ export const fetchWorkouts = userId => {
     data
   });
 };
+
+export const createWorkout = workout => (
+  $.ajax({
+    type: 'POST',
+    url: '/api/workouts',
+    workout
+  })
+);
