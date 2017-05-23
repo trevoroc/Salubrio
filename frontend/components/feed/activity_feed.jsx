@@ -1,5 +1,7 @@
 import React from 'react';
 
+import WorkoutListContainer from '../workouts/workout_list_container';
+
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +20,8 @@ class ActivityFeed extends React.Component {
         <h2>Activity Feed</h2>
         <br></br>
         <button onClick={ this.handleLogout }>Log Out</button>
+        <br></br>
+        <WorkoutListContainer />
       </section>
     );
   }
