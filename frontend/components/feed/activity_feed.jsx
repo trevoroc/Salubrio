@@ -9,6 +9,10 @@ class ActivityFeed extends React.Component {
     this.handleLogout = this.handleLogout.bind(this);
   }
 
+  componentWillMount() {
+    this.props.fetchWorkouts(); // TODO: Add logic to handle user-specific vs. general
+  }
+
   handleLogout(e) {
     e.preventDefault();
     this.props.logout();

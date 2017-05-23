@@ -10,8 +10,8 @@ class WorkoutList extends React.Component {
   buildWorkoutItems() {
     const workoutIds = Object.keys(this.props.workouts);
     return workoutIds.map(id => (
-      <li>
-        <WorkoutListItem key={ id } workout={ this.props.workouts[id] } />
+      <li key={ id }>
+        <WorkoutListItem id={ id } workout={ this.props.workouts[id] } />
       </li>
     ));
   }
