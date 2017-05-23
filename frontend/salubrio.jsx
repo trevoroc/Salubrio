@@ -6,10 +6,11 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TODO: delete later
-import * as Util from './util/api_util';
-window.fetchWorkouts = Util.fetchWorkouts;
-window.createWorkout = Util.createWorkout;
-window.deleteWorkout = Util.deleteWorkout;
+import * as Actions from './actions/workout_actions';
+window.fetchWorkouts = Actions.fetchWorkouts;
+window.fetchWorkout = Actions.fetchWorkout;
+window.createWorkout = Actions.createWorkout;
+window.deleteWorkout = Actions.deleteWorkout;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
