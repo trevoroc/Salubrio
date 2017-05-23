@@ -1,5 +1,7 @@
 import React from 'react';
 
+import WorkoutListItem from './workout_list_item';
+
 class WorkoutList extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,9 @@ class WorkoutList extends React.Component {
   buildWorkoutItems() {
     const workoutIds = Object.keys(this.props.workouts);
     return workoutIds.map(id => (
-      <WorkoutListItem key={ id } workout={ this.props.workouts[id] } />
+      <li>
+        <WorkoutListItem key={ id } workout={ this.props.workouts[id] } />
+      </li>
     ));
   }
 
@@ -21,3 +25,5 @@ class WorkoutList extends React.Component {
     );
   }
 }
+
+export default WorkoutList;
