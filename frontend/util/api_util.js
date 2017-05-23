@@ -1,3 +1,4 @@
+// User/Session requests
 export const signup = user => (
   $.ajax({
     type: 'POST',
@@ -25,6 +26,7 @@ export const logout = () => (
   })
 );
 
+// Workout requests
 export const fetchWorkouts = userId => {
   const data = userId ? { user_id: userId } : {};
   return $.ajax({
