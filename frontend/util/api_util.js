@@ -38,6 +38,32 @@ export const createWorkout = workout => (
   $.ajax({
     type: 'POST',
     url: '/api/workouts',
-    workout
+    data: {
+      workout
+    }
+  })
+);
+
+export const fetchWorkout = id => (
+  $.ajax({
+    type: 'GET',
+    url: `/api/workouts/${id}`
+  })
+);
+
+export const updateWorkout = workout => (
+  $.ajax({
+    type: 'PATCH',
+    url: `/api/workouts/${workout.id}`,
+    data: {
+      workout
+    }
+  })
+);
+
+export const deleteWorkout = id => (
+  $.ajax({
+    type: 'DELETE',
+    url: `/api/workouts/${id}`
   })
 );

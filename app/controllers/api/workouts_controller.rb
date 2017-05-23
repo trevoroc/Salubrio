@@ -12,7 +12,7 @@ class Api::WorkoutsController < ApplicationController
   def index
     if params[:user_id]
       # TODO: Include routes when the time comes
-      @workouts = Workout.find_by(user_id: params[:user_id])
+      @workouts = Workout.where(user_id: params[:user_id])
     else
       @workouts = Workout.all
     end
@@ -43,7 +43,7 @@ class Api::WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
     if @workout
       @workout.destroy
-      render json: ['Workout deleted.'], status: 200
+      render_successful_delete
     else
       render_not_found
     end
@@ -53,14 +53,19 @@ class Api::WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(
+      :user_id,
       :title,
       :datetime,
-      :type,
+      :workout_type,
       :duration,
       :distance,
       :elevation,
       :description
     )
+  end
+
+  def render_successful_delete
+    render json: ['Workout deleted.'], status: 200
   end
 
   def render_not_found
