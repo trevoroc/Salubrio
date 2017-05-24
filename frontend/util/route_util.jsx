@@ -4,7 +4,8 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const Auth = ({ component: Component, path, loggedIn }) => (
   <Route path={ path } render={ props => (
-      !loggedIn ? <Component { ...props } /> : <Redirect to="/feed" />
+      !loggedIn ? <Component { ...props } />
+        : <Redirect to={ props.location } />
   )} />
 );
 
