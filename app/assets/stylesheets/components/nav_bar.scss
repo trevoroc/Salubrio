@@ -18,6 +18,11 @@
   color: $kaiser-blue;
 }
 
+.nav > * {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
 .dropdown {
   position: absolute;
   top: 57px;

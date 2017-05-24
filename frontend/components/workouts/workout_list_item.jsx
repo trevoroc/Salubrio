@@ -26,7 +26,7 @@ const WorkoutListItem = props => {
         <div className="title">{ props.workout.title }</div>
         <div className="duration">{ formatDuration(duration) }</div>
         <div className="distance">
-          { formatDistance(Math.round(distance * 100) / 100) }
+          { formatDistance(Math.round(distance * 100) / 100) }mi
         </div>
         <div className="pace">{ pace }/mi</div>
       </div>

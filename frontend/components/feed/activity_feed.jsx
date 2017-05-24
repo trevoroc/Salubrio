@@ -14,12 +14,14 @@ class ActivityFeed extends React.Component {
 
   render() {
     return (
-      <section className="feed">
+      <section>
         <NavBarContainer username={ this.props.username }/>
         <br></br>
-        <h2>Activity Feed</h2>
-        <br></br>
-        <WorkoutListContainer />
+        <section className="feed">
+          <h2>Activity Feed</h2>
+          <br></br>
+          <WorkoutListContainer />
+        </section>
       </section>
     );
   }

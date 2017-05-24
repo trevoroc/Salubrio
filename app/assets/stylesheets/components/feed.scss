@@ -1,0 +1,17 @@
+@import '../base/fonts.scss';
+
+.feed {
+  width: 60%;
+  padding-left: 20%;
+  padding-top: 10px;
+}
+
+.feed h2 {
+  font-family: $raleway;
+  font-size: 34px;
+}
+
+.feed li {
+  list-style-type: none;
+  padding: 10px 0;
+}
