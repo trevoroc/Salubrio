@@ -20,7 +20,7 @@ class RouteForm extends React.Component {
     return (
       this.state.waypoints.slice(1, this.state.waypoints.length - 1)
         .map(wp => ({
-          location: { lat: wp.lat(), lng: wp.lng() },
+          location: wp,
           stopover: true
         }))
     );
@@ -41,7 +41,6 @@ class RouteForm extends React.Component {
   }
 
   handleDirections(result, status) {
-    // console.log('Received result');
     if (status === 'OK') {
       this.directionsDisplay.setDirections(result);
     }
@@ -49,7 +48,6 @@ class RouteForm extends React.Component {
 
   calculateRoute() {
     if (this.state.waypoints.length > 1) {
-      // console.log('About to send request');
       this.directionsService.route(this.buildRequest(), this.handleDirections);
     }
   }
