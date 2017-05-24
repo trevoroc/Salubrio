@@ -1,9 +1,14 @@
 import React from 'react';
 
 const NavBar = props => (
-  <header>
+  <header className="nav">
     <h1>Salubrio</h1>
-    <ul className="dropdown">
+    <button onClick={ e => {
+        e.preventDefault();
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.classList.toggle('hidden');
+      }}>{ props.username }</button>
+    <ul className="dropdown hidden">
       <li key="workout">
         <button className="dropdown-link">Add a workout</button>
       </li>

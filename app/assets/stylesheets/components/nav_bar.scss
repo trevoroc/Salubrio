@@ -1,0 +1,44 @@
+@import "../base/fonts.scss";
+@import "../base/colors.scss";
+
+.nav {
+  display: flex;
+  top: 0px;
+  padding: 10px 25px;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+  font-family: $cabin;
+  font-size: 17px;
+  align-items: center;
+}
+
+.nav h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: $kaiser-blue;
+}
+
+.dropdown {
+  position: absolute;
+  top: 57px;
+  right: 0;
+  border: 1px solid lightgray;
+  background-color: white;
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdown li {
+  list-style-type: none;
+}
+
+.dropdown-link {
+  width: 100%;
+  padding: 15px 30px;
+}
+
+.dropdown-link:hover {
+  background-color: lightgray;
+}
