@@ -1,29 +1,23 @@
 import React from 'react';
 
 import WorkoutListContainer from '../workouts/workout_list_container';
+import NavBarContainer from '../navbar/nav_bar_container';
 
 class ActivityFeed extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentWillMount() {
     this.props.fetchWorkouts(); // TODO: Add logic to handle user-specific vs. general
   }
 
-  handleLogout(e) {
-    e.preventDefault();
-    this.props.logout();
-  }
-
   render() {
     return (
       <section>
-        <h2>Activity Feed</h2>
+        <NavBarContainer />
         <br></br>
-        <button onClick={ this.handleLogout }>Log Out</button>
+        <h2>Activity Feed</h2>
         <br></br>
         <WorkoutListContainer />
       </section>
