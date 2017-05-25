@@ -1,5 +1,10 @@
 import React from 'react';
 
+const defaultCenter = {
+  lat: 37.7749,
+  lng: -122.4194
+};
+
 class RouteForm extends React.Component {
   constructor(props) {
     super(props);
@@ -11,7 +16,6 @@ class RouteForm extends React.Component {
       waypoints: []
     };
 
-    this.initMap = this.initMap.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleDirections = this.handleDirections.bind(this);
   }
@@ -62,23 +66,13 @@ class RouteForm extends React.Component {
     this.calculateRoute();
   }
 
-  getCurrentLocation() {
-    navigator.geolocation.getCurrentPosition(position => {
-      this.initMap(position.coords.latitude, position.coords.longitude);
-      this.map.addListener('click', this.handleClick);
-    });
-  }
-
-  initMap(lat, lng) {
+  componentDidMount() {
     this.map = new google.maps.Map(document.getElementById('map'), {
-      center: { lat, lng },
+      center: defaultCenter,
       zoom: 12
     });
     this.directionsDisplay.setMap(this.map);
-  }
-
-  componentDidMount() {
-    this.getCurrentLocation();
+    this.map.addListener('click', this.handleClick);
   }
 
   render() {
