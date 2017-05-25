@@ -1,5 +1,6 @@
 import React from 'react';
 
+// The map centers on San Francisco by default
 const defaultCenter = {
   lat: 37.7749,
   lng: -122.4194
