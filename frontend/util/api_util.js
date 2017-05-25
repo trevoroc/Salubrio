@@ -3,9 +3,7 @@ export const signup = user => (
   $.ajax({
     type: 'POST',
     url: '/api/users',
-    data: {
-      user
-    }
+    data: { user }
   })
 );
 
@@ -13,9 +11,7 @@ export const login = user => (
   $.ajax({
     type: 'POST',
     url: '/api/session',
-    data: {
-      user
-    }
+    data: { user }
   })
 );
 
@@ -40,9 +36,7 @@ export const createWorkout = workout => (
   $.ajax({
     type: 'POST',
     url: '/api/workouts',
-    data: {
-      workout
-    }
+    data: { workout }
   })
 );
 
@@ -57,9 +51,7 @@ export const updateWorkout = workout => (
   $.ajax({
     type: 'PATCH',
     url: `/api/workouts/${workout.id}`,
-    data: {
-      workout
-    }
+    data: { workout }
   })
 );
 
@@ -74,7 +66,8 @@ export const deleteWorkout = id => (
 export const createRoute = route => (
   $.ajax({
     type: 'POST',
-    url: '/api/routes'
+    url: '/api/routes',
+    data: { route }
   })
 );
 
