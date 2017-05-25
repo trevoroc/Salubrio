@@ -16,5 +16,5 @@ class Route < ApplicationRecord
   validates :user_id, :name, :waypoints, :distance, :elevation, presence: true
 
   belongs_to :user
-  # has_many :workouts TODO: Add when workouts have foreign key
+  has_many :workouts
 end
