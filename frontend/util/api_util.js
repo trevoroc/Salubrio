@@ -69,3 +69,20 @@ export const deleteWorkout = id => (
     url: `/api/workouts/${id}`
   })
 );
+
+// Routes requests
+export const createRoute = route => (
+  $.ajax({
+    type: 'POST',
+    url: '/api/routes'
+  })
+);
+
+export const fetchRoutes = ids => {
+  const data = ids ? { ids } : {};
+  return $.ajax({
+    type: 'GET',
+    url: '/api/routes',
+    data
+  });
+};
