@@ -6,7 +6,7 @@
 #  user_id    :integer          not null
 #  name       :string           not null
 #  waypoints  :string           not null
-#  distance   :integer          not null
+#  distance   :float            not null
 #  elevation  :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

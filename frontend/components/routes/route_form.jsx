@@ -21,7 +21,7 @@ class RouteForm extends React.Component {
 
     this.state = {
       waypoints: [],
-      name: 'test',
+      name: '',
       distance: null,
       elevation: null
     };
@@ -30,6 +30,11 @@ class RouteForm extends React.Component {
     this.handleDirections = this.handleDirections.bind(this);
     this.handleElevationResponse = this.handleElevationResponse.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.update = this.update.bind(this);
+  }
+
+  update(property) {
+    return e => this.setState({ [property]: e.target.value });
   }
 
   buildWaypoints() {
@@ -108,6 +113,8 @@ class RouteForm extends React.Component {
   }
 
   handleSubmit() {
+    if (this.state.name.length === 0) { this.state.name = "Market Street Run"; }
+
     const route = merge(
       {},
       this.state,
@@ -116,7 +123,7 @@ class RouteForm extends React.Component {
     );
 
     this.props.createRoute(route);
-    // TODO: push feed page
+    this.props.history.push('/feed');
   }
 
   componentDidMount() {
@@ -133,6 +140,15 @@ class RouteForm extends React.Component {
       <div>
         <NavBarContainer />
         <sidebar className="toolbar">
+          <input type="text" className="route-name" value={ this.state.name }
+            placeholder="Market Street Run"
+            onChange={ this.update('name') }></input>
+          <div className="route-distance">
+            { this.state.distance }{ this.state.distance ? 'mi' : '' }
+          </div>
+          <div className="route-elevation">
+            { this.state.elevation }{ this.state.elevation ? 'ft' : '' }
+          </div>
           <button className="create-route"
             onClick={ this.handleSubmit }>Create</button>
         </sidebar>

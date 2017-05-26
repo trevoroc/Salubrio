@@ -7,7 +7,7 @@
 #  title       :string           not null
 #  datetime    :datetime         not null
 #  duration    :integer          not null
-#  distance    :integer
+#  distance    :float
 #  elevation   :integer
 #  description :text
 #  created_at  :datetime         not null

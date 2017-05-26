@@ -16,35 +16,31 @@ time = DateTime.now
 Workout.create(user_id: u_id,
                title: 'Morning Run',
                datetime: time,
-               workout_type: 'Run',
                duration: 1200,
-               distance: 10560,
+               distance: 2.0,
                elevation: 200,
                description: 'Lovely morning jog')
 
 Workout.create(user_id: u_id,
                title: 'Lunch Run',
                datetime: time,
-               workout_type: 'Run',
                duration: 1200,
-               distance: 10560,
+               distance: 2.0,
                elevation: 200,
                description: 'Lovely lunch jog')
 
 Workout.create(user_id: u_id,
                title: 'Afternoon Run',
                datetime: time,
-               workout_type: 'Run',
                duration: 1200,
-               distance: 10560,
+               distance: 2.0,
                elevation: 200,
                description: 'Lovely afternoon jog')
 
 Workout.create(user_id: u_id,
                title: 'Evening Run',
                datetime: time,
-               workout_type: 'Run',
                duration: 1200,
-               distance: 10560,
+               distance: 2.0,
                elevation: 200,
                description: 'Lovely evening jog')

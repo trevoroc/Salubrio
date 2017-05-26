@@ -7,9 +7,12 @@
 
 .toolbar {
   position: absolute;
+  display: flex;
   z-index: 3;
-  width: 94%;
-  margin: 0 3%;
   background-color: white;
-  bottom: 5%;
+  bottom: 4%;
+  left: 20px;
+  right: 60px;
+  padding: 10px;
+  justify-content: space-between; 
 }
