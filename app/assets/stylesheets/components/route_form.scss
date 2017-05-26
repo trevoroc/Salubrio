@@ -32,8 +32,16 @@
   width: 30%;
 }
 
+.route-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
 .route-stats {
   display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .create-route {
