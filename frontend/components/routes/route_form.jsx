@@ -3,6 +3,8 @@ import React from 'react';
 import NavBarContainer from '../navbar/nav_bar_container';
 import { mToFt } from '../../util/unit_conversions';
 
+const merge = require('lodash.merge');
+
 // The map centers on San Francisco by default
 const defaultCenter = {
   lat: 37.7749,
@@ -27,6 +29,7 @@ class RouteForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleDirections = this.handleDirections.bind(this);
     this.handleElevationResponse = this.handleElevationResponse.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   buildWaypoints() {
@@ -104,6 +107,18 @@ class RouteForm extends React.Component {
     this.calculateRoute();
   }
 
+  handleSubmit() {
+    const route = merge(
+      {},
+      this.state,
+      { user_id: this.props.userId },
+      { waypoints: JSON.stringify(this.state.waypoints) }
+    );
+
+    this.props.createRoute(route);
+    // TODO: push feed page
+  }
+
   componentDidMount() {
     this.map = new google.maps.Map(document.getElementById('map'), {
       center: defaultCenter,
@@ -117,6 +132,10 @@ class RouteForm extends React.Component {
     return (
       <div>
         <NavBarContainer />
+        <sidebar className="toolbar">
+          <button className="create-route"
+            onClick={ this.handleSubmit }>Create</button>
+        </sidebar>
         <div id="map"></div>
       </div>
     );

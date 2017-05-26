@@ -4,7 +4,7 @@ import RouteForm from './route_form';
 import { createRoute } from '../../actions/route_actions';
 
 const mapStateToProps = ({ session }) => ({
-  user_id: session.currentUser.id
+  userId: session.currentUser.id
 });
 
 const mapDispatchToProps = dispatch => ({
