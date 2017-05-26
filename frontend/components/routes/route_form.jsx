@@ -1,5 +1,8 @@
 import React from 'react';
 
+import NavBarContainer from '../navbar/nav_bar_container';
+import { mToFt } from '../../util/unit_conversions';
+
 // The map centers on San Francisco by default
 const defaultCenter = {
   lat: 37.7749,
@@ -12,13 +15,18 @@ class RouteForm extends React.Component {
     this.map = null;
     this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
+    this.elevationService = new google.maps.ElevationService();
 
     this.state = {
-      waypoints: []
+      waypoints: [],
+      name: 'test',
+      distance: null,
+      elevation: null
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleDirections = this.handleDirections.bind(this);
+    this.handleElevationResponse = this.handleElevationResponse.bind(this);
   }
 
   buildWaypoints() {
@@ -41,12 +49,41 @@ class RouteForm extends React.Component {
       destination,
       waypoints,
       travelMode: 'WALKING',
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
       optimizeWaypoints: false
     };
   }
 
+  handleElevationResponse(result, status) {
+    if (status === 'OK') {
+      const elevation = Math.round(
+        mToFt(result[1].elevation - result[0].elevation)
+      );
+      this.setState({ elevation }, () => console.log(elevation));
+    }
+  }
+
+  calculateDistance(legs) {
+    const distance = legs.map(leg => parseFloat(leg.distance.text))
+                         .reduce((acc, val) => acc + val);
+    this.setState({ distance });
+  }
+
+  calculateElevation() {
+    const endpoints = [
+      this.state.waypoints[0],
+      this.state.waypoints[this.state.waypoints.length - 1]
+    ];
+
+    this.elevationService.getElevationForLocations({
+      locations: endpoints
+    }, this.handleElevationResponse);
+  }
+
   handleDirections(result, status) {
     if (status === 'OK') {
+      this.calculateDistance(result.routes[0].legs);
+      this.calculateElevation();
       this.directionsDisplay.setDirections(result);
     }
   }
@@ -78,7 +115,10 @@ class RouteForm extends React.Component {
 
   render() {
     return (
-      <div id="map"></div>
+      <div>
+        <NavBarContainer />
+        <div id="map"></div>
+      </div>
     );
   }
 }

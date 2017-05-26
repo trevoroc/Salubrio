@@ -15,7 +15,7 @@ class ActivityFeed extends React.Component {
   render() {
     return (
       <section>
-        <NavBarContainer username={ this.props.username }/>
+        <NavBarContainer />
         <br></br>
         <section className="feed">
           <h2>Activity Feed</h2>
