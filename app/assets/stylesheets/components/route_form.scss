@@ -1,3 +1,10 @@
+@import '../base/fonts.scss';
+@import '../base/colors.scss';
+
+.route-form {
+  font-family: $opensans;
+}
+
 #map {
   position: absolute;
   width: 100%;
@@ -13,6 +20,29 @@
   bottom: 4%;
   left: 20px;
   right: 60px;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.route-name {
+  border: 1px solid lightgray;
+  border-radius: 2px;
   padding: 10px;
-  justify-content: space-between; 
+  width: 30%;
+}
+
+.route-stats {
+  display: flex;
+}
+
+.create-route {
+  background-color: $kaiser-blue;
+  color: white;
+  font-family: $cabin;
+  font-weight: bold;
+
+  border-radius: 5px;
+  margin: 0 8px;
+  padding: 10px 20px;
 }

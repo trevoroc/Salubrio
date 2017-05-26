@@ -22,8 +22,8 @@ class RouteForm extends React.Component {
     this.state = {
       waypoints: [],
       name: '',
-      distance: null,
-      elevation: null
+      distance: 0,
+      elevation: 0
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -137,17 +137,19 @@ class RouteForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="route-form">
         <NavBarContainer />
         <sidebar className="toolbar">
           <input type="text" className="route-name" value={ this.state.name }
             placeholder="Market Street Run"
             onChange={ this.update('name') }></input>
-          <div className="route-distance">
-            { this.state.distance }{ this.state.distance ? 'mi' : '' }
-          </div>
-          <div className="route-elevation">
-            { this.state.elevation }{ this.state.elevation ? 'ft' : '' }
+          <div className="route-stats">
+            <div className="route-distance">
+              { this.state.distance }mi
+            </div>
+            <div className="route-elevation">
+              { this.state.elevation }ft
+            </div>
           </div>
           <button className="create-route"
             onClick={ this.handleSubmit }>Create</button>
