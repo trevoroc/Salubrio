@@ -1,6 +1,15 @@
 #map {
   position: absolute;
   width: 100%;
-  top: 116px;
-  height: calc(100% - 116px);
+  top: 58px;
+  height: calc(100% - 58px);
+}
+
+.toolbar {
+  position: absolute;
+  z-index: 3;
+  width: 94%;
+  margin: 0 3%;
+  background-color: white;
+  bottom: 5%;
 }
