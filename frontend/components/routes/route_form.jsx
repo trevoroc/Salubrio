@@ -144,15 +144,26 @@ class RouteForm extends React.Component {
             <input type="text" className="route-name" value={ this.state.name }
               placeholder="Market Street Run"
               onChange={ this.update('name') }></input>
+
             <div className="route-stats">
               <div className="route-distance">
-                { this.state.distance }mi
+                <div className="amount">
+                  <div className="quantity">{ this.state.distance }</div>
+                  <div className="unit">mi</div>
+                </div>
+                <div className="stat-label">Distance</div>
               </div>
               <div className="route-elevation">
-                { this.state.elevation }ft
+                <div className="amount">
+                  <div className="quantity">{ this.state.elevation }</div>
+                  <div className="unit">ft</div>
+                </div>
+                <div className="stat-label">Elevation</div>
               </div>
             </div>
           </div>
+
+          <button className="clear-route">Clear</button>
           <button className="create-route"
             onClick={ this.handleSubmit }>Create</button>
         </sidebar>

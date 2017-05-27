@@ -23,6 +23,7 @@
   padding: 15px;
   justify-content: space-between;
   align-items: center;
+  box-shadow: -1px 4px 6px 1px rgba(0, 0, 0, 0.09);
 }
 
 .route-name {
@@ -40,17 +41,48 @@
 
 .route-stats {
   display: flex;
-  justify-content: space-around;
   width: 100%;
+  margin-left: 40px;
+}
+
+.route-stats > * {
+  margin: 0 40px;
+}
+
+.amount {
+  display: flex;
+}
+
+.quantity {
+  font-size: 25px;
+  margin-right: 3px;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: $labelgray;
+}
+
+.unit {
+  font-size: 13px;
+  color: $labelgray;
+}
+
+.route-form button {
+  font-family: $cabin;
+  margin: 0 8px;
+  padding: 10px 20px;
 }
 
 .create-route {
   background-color: $kaiser-blue;
   color: white;
-  font-family: $cabin;
   font-weight: bold;
 
   border-radius: 5px;
-  margin: 0 8px;
-  padding: 10px 20px;
+}
+
+.clear-route {
+  color: #7f8790;
+  font-size: 18px;
 }
