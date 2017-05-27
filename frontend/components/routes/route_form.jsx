@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavBarContainer from '../navbar/nav_bar_container';
-import { mToFt } from '../../util/unit_conversions';
+import { mToFt, roundToNearestN } from '../../util/unit_conversions';
 
 const merge = require('lodash.merge');
 
@@ -16,8 +16,12 @@ class RouteForm extends React.Component {
     super(props);
     this.map = null;
     this.directionsService = new google.maps.DirectionsService();
-    this.directionsDisplay = new google.maps.DirectionsRenderer();
+    this.directionsDisplay = new google.maps.DirectionsRenderer({
+      preserveViewport: true,
+      suppressMarkers: true
+    });
     this.elevationService = new google.maps.ElevationService();
+    this.markers = [];
 
     this.state = {
       waypoints: [],
@@ -30,6 +34,7 @@ class RouteForm extends React.Component {
     this.handleDirections = this.handleDirections.bind(this);
     this.handleElevationResponse = this.handleElevationResponse.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.update = this.update.bind(this);
   }
 
@@ -107,12 +112,15 @@ class RouteForm extends React.Component {
       position: e.latLng,
       map: this.map
     });
+    this.markers.push(marker);
 
     this.state.waypoints.push(e.latLng);
     this.calculateRoute();
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
+    e.preventDefault();
+
     if (this.state.name.length === 0) { this.state.name = "Market Street Run"; }
 
     const route = merge(
@@ -124,6 +132,24 @@ class RouteForm extends React.Component {
 
     this.props.createRoute(route);
     this.props.history.push('/feed');
+  }
+
+  handleClear(e) {
+    e.preventDefault();
+
+    for (let i = 0; i < this.markers.length; i++) {
+      this.markers[i].setMap(null);
+    }
+    this.markers = [];
+
+    this.directionsDisplay.set('directions', null);
+
+    this.setState({
+      waypoints: [],
+      name: '',
+      distance: 0,
+      elevation: 0
+    });
   }
 
   componentDidMount() {
@@ -148,7 +174,9 @@ class RouteForm extends React.Component {
             <div className="route-stats">
               <div className="route-distance">
                 <div className="amount">
-                  <div className="quantity">{ this.state.distance }</div>
+                  <div className="quantity">
+                    { roundToNearestN(this.state.distance, 1) }
+                  </div>
                   <div className="unit">mi</div>
                 </div>
                 <div className="stat-label">Distance</div>
@@ -163,7 +191,8 @@ class RouteForm extends React.Component {
             </div>
           </div>
 
-          <button className="clear-route">Clear</button>
+          <button className="clear-route"
+            onClick={ this.handleClear }>Clear</button>
           <button className="create-route"
             onClick={ this.handleSubmit }>Create</button>
         </sidebar>
