@@ -43,8 +43,8 @@ class SplashHeader extends React.Component {
       content: {
         position: 'fixed',
         top: '200px',
-        left: '35%',
-        right: '35%',
+        left: '600px',
+        right: '600px',
         bottom: '300px',
         border: '1px solid #ccc',
         padding: 0,

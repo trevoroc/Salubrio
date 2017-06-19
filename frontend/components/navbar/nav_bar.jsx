@@ -28,13 +28,15 @@ class NavBar extends React.Component {
         <button onClick={ this.toggleDropdown }>{ this.props.username }</button>
         <ul className="dropdown hidden">
           <li key="workout">
-            <button className="dropdown-link">Add a workout</button>
+            <Link to="/newworkout" className="dropdown-link">
+              Add a workout
+            </Link>
           </li>
           <li key="route">
             <Link to="/newroute" className="dropdown-link">Create a route</Link>
           </li>
           <li key="profile">
-            <button className="dropdown-link">Profile</button>
+            <Link to="/profile" className="dropdown-link">Profile</Link>
           </li>
           <li key="logout">
             <button onClick={ this.logout }

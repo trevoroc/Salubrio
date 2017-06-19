@@ -18,17 +18,13 @@
   color: $kaiser-blue;
 }
 
-.nav > * {
-  padding-left: 20%;
-  padding-right: 20%;
-}
-
 .dropdown {
   position: absolute;
   top: 57px;
   right: 0;
   border: 1px solid lightgray;
   background-color: white;
+  z-index: 5;
 }
 
 .hidden {
@@ -37,13 +33,15 @@
 
 .dropdown li {
   list-style-type: none;
-}
-
-.dropdown-link {
   width: 100%;
   padding: 15px 30px;
 }
 
-.dropdown-link:hover {
+.dropdown-link {
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown li:hover {
   background-color: lightgray;
 }
