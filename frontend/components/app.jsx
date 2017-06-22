@@ -8,7 +8,7 @@ import RouteFormContainer from './routes/route_form_container';
 
 const App = () => (
   <div>
-    <AuthRoute exact path="/" component={ Splash } />
+    <AuthRoute path="/" component={ Splash } />
     <ProtectedRoute exact path="/feed" component={ ActivityFeedContainer } />
     <ProtectedRoute exact path="/newroute" component={ RouteFormContainer } />
   </div>
