@@ -14,7 +14,6 @@ class SplashHeader extends React.Component {
     e.preventDefault();
 
     this.props.login({ username: 'demo', password: 'password' }).then(() => {
-      debugger;
       this.props.history.push('/feed');
     });
   }
