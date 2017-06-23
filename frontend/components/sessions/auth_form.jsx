@@ -1,4 +1,4 @@
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import React from 'react';
 
 class AuthForm extends React.Component {
@@ -9,14 +9,13 @@ class AuthForm extends React.Component {
       password: ''
     };
 
+    this.redirect = this.redirect.bind(this);
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.loggedIn) {
-      this.props.history.push('/feed');
-    }
+  redirect() {
+    this.props.history.push('/feed');
   }
 
   update(property) {
@@ -25,7 +24,7 @@ class AuthForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.sendForm(this.state);
+    this.props.sendForm(this.state).then(this.redirect);
     this.props.clearErrors();
   }
 
@@ -63,7 +62,9 @@ class AuthForm extends React.Component {
 
         { this.renderErrors() }
 
-        <button onClick={ this.handleSubmit }>{ buttonText }</button>
+        <button className="auth-submit" onClick={ this.handleSubmit }>
+          { buttonText }
+        </button>
       </form>
     );
   }

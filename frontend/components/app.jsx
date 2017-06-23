@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 
 import Splash from './splash/splash';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
