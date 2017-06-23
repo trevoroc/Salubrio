@@ -13,7 +13,10 @@ class SplashHeader extends React.Component {
   guestLogin(e) {
     e.preventDefault();
 
-    // TODO: Directly login
+    this.props.login({ username: 'demo', password: 'password' }).then(() => {
+      debugger;
+      this.props.history.push('/feed');
+    });
   }
 
   openModal(formType) {
