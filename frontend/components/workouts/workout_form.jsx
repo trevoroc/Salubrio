@@ -65,6 +65,10 @@ class WorkoutForm extends React.Component {
         <input type="number" className="workout-elevation"
           onChange={ this.update('elevation') } value={ this.state.elevation }>
         </input>
+
+        <textarea className="workout-description" rows="10" cols="50"
+          onChange={ this.update('description') }
+          value={ this.state.description }></textarea>
       </div>
     );
   }
