@@ -9,15 +9,19 @@ class WorkoutForm extends React.Component {
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
     this.state = {
       title: '',
       date: `${year}-${month >= 10 ? '' : '0'}${month}-${day}`,
-      time: `${date.getHours()}:${date.getMinutes()}`,
+      time: `${hours >= 10 ? '' : '0'}${hours}` +
+            `:${minutes >= 10 ? '' : '0'}${minutes}`,
       hours: 0,
       minutes: 0,
       seconds: 0,
-      distance: 0,
-      elevation: 0,
+      distance: null,
+      elevation: null,
       description: ''
     };
 
@@ -31,9 +35,18 @@ class WorkoutForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    // TODO: There are a lot of unit conversions that still need to happen to
-    // have the workout object ready to ship
-    // this.props.createWorkout(this.state);
+    const workout = {
+      user_id: this.props.id,
+      title: this.state.title,
+      datetime: this.state.date + ' ' + this.state.time,
+      duration: parseInt(this.state.hours) * 3600 +
+        parseInt(this.state.minutes) * 60 + parseInt(this.state.seconds),
+      distance: this.state.distance,
+      elevation: this.state.elevation,
+      description: this.state.description
+    };
+
+    this.props.createWorkout(workout);
   }
 
   render() {
@@ -49,6 +62,7 @@ class WorkoutForm extends React.Component {
         <input type="time" className="workout-time"
           onChange={ this.update('time') } value={ this.state.time }></input>
 
+        <label>Duration</label>
         <input type="number" className="workout-duration hours"
           onChange={ this.update('hours') } value={ this.state.hours }></input>
         <input type="number" className="workout-duration minutes"
@@ -58,17 +72,22 @@ class WorkoutForm extends React.Component {
           onChange={ this.update('seconds') } value={ this.state.seconds }>
         </input>
 
+        <label>Distance</label>
         <input type="number" className="workout-distance"
           onChange={ this.update('distance') } value={ this.state.distance }>
         </input>
 
+        <label>Elevation</label>
         <input type="number" className="workout-elevation"
           onChange={ this.update('elevation') } value={ this.state.elevation }>
         </input>
 
+        <label>Description</label>
         <textarea className="workout-description" rows="10" cols="50"
           onChange={ this.update('description') }
           value={ this.state.description }></textarea>
+
+        <button onClick={ this.handleSubmit }>Create Workout</button>
       </div>
     );
   }

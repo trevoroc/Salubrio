@@ -8,7 +8,7 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  createWorkout: (workout) => dispatch(createWorkout)
+  createWorkout: (workout) => dispatch(createWorkout(workout))
 });
 
 

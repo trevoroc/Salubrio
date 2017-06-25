@@ -5,7 +5,7 @@ import Splash from './splash/splash';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import ActivityFeedContainer from './feed/activity_feed_container';
 import RouteFormContainer from './routes/route_form_container';
-import WorkoutFormContainer from './workouts/workout_form_container';
+import WorkoutFormPage from './workouts/workout_form_page';
 
 const App = () => (
   <div>
@@ -13,7 +13,7 @@ const App = () => (
     <ProtectedRoute exact path="/feed" component={ ActivityFeedContainer } />
     <ProtectedRoute exact path="/newroute" component={ RouteFormContainer } />
     <ProtectedRoute exact path="/newworkout"
-      component={ WorkoutFormContainer } />
+      component={ WorkoutFormPage } />
   </div>
 );
 
