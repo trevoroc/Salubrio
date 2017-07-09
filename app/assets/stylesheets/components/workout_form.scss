@@ -1,12 +1,63 @@
+@import "../base/fonts.scss";
+
 // Stylesheet for a new workout form
 
 .workout-form {
   display: flex;
   flex-direction: column;
 
-  margin-left: 20%;
+  font-family: $opensans;
+  font-size: 15px;
+
+  margin: 0 20% 0 20%;
 }
 
 .workout-form h1 {
   margin-top: 40px;
+
+  font-size: 26px;
+}
+
+.workout-form-section {
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: 1px solid lightgrey;
+  margin-top: 50px;
+  padding-bottom: 60px;
+}
+
+.workout-attr {
+  display: flex;
+  flex-direction: column;
+
+  margin: 0 15px 0 15px;
+}
+
+.attr-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  margin-top: 10px;
+}
+
+.attr-body input {
+  border: 1px solid lightgrey;
+  border-radius: 1px;
+  padding: 5px;
+
+  width: 100%;
+}
+
+.attr-body .workout-title {
+  padding: 6.25px 5px;
+}
+
+.workout-form button {
+  font-family: $cabin;
+}
+
+.units {
+  margin: 0 15px 0 5px;
 }

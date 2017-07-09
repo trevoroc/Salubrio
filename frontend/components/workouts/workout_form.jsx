@@ -14,7 +14,7 @@ class WorkoutForm extends React.Component {
 
     this.state = {
       title: '',
-      date: `${year}-${month >= 10 ? '' : '0'}${month}-${day}`,
+      date: `${year}-${month >= 10 ? '' : '0'}${month}-${day >= 10 ? '' : '0'}${day}`,
       time: `${hours >= 10 ? '' : '0'}${hours}` +
             `:${minutes >= 10 ? '' : '0'}${minutes}`,
       hours: 0,
@@ -55,49 +55,78 @@ class WorkoutForm extends React.Component {
         <h1>New Workout</h1>
 
         <section className="workout-form-section">
-          <label>Title</label>
-          <input type="text" className="workout-title" placeholder="Morning Run"
-            onChange={ this.update('title') } value={ this.state.title }>
-          </input>
+          <section className="workout-attr">
+            <label>Title</label>
+            <section className="attr-body">
+              <input type="text" className="workout-title"
+                placeholder="Morning Run" onChange={ this.update('title') }
+                value={ this.state.title }></input>
+            </section>
+          </section>
 
-          <label>Date & Time</label>
-          <input type="date" className="workout-date"
-            onChange={ this.update('date') } value={ this.state.date }></input>
-          <input type="time" className="workout-time"
-            onChange={ this.update('time') } value={ this.state.time }></input>
+          <section className="workout-attr">
+            <label>Date & Time</label>
+            <section className="attr-body">
+              <input type="date" className="workout-date"
+                onChange={ this.update('date') } value={ this.state.date }>
+              </input>
+              <input type="time" className="workout-time"
+                onChange={ this.update('time') } value={ this.state.time }>
+              </input>
+            </section>
+          </section>
         </section>
 
         <section className="workout-form-section">
-          <label>Duration</label>
-          <input type="number" className="workout-duration hours"
-            onChange={ this.update('hours') } value={ this.state.hours }>
-          </input>
-          <input type="number" className="workout-duration minutes"
-            onChange={ this.update('minutes') } value={ this.state.minutes }>
-          </input>
-          <input type="number" className="workout-duration seconds"
-            onChange={ this.update('seconds') } value={ this.state.seconds }>
-          </input>
+          <section className="workout-attr">
+            <label>Duration</label>
+            <section className="attr-body">
+              <input type="number" className="workout-duration hours"
+                onChange={ this.update('hours') } value={ this.state.hours }>
+              </input>
+              <div className="units">hrs</div>
+              <input type="number" className="workout-duration minutes"
+                onChange={ this.update('minutes') }
+                value={ this.state.minutes }></input>
+              <div className="units">min</div>
+              <input type="number" className="workout-duration seconds"
+                onChange={ this.update('seconds') }
+                value={ this.state.seconds }></input>
+              <div className="units">s</div>
+            </section>
+          </section>
 
-          <label>Distance</label>
-          <input type="number" className="workout-distance"
-            onChange={ this.update('distance') } value={ this.state.distance }>
-          </input>
+          <section className="workout-attr">
+            <label>Distance</label>
+            <section className="attr-body">
+              <input type="number" className="workout-distance"
+                onChange={ this.update('distance') }
+                value={ this.state.distance }></input>
+            </section>
+          </section>
 
-          <label>Elevation</label>
-          <input type="number" className="workout-elevation"
-            onChange={ this.update('elevation') }
-            value={ this.state.elevation }></input>
+          <section className="workout-attr">
+            <label>Elevation</label>
+            <section className="attr-body">
+              <input type="number" className="workout-elevation"
+                onChange={ this.update('elevation') }
+                value={ this.state.elevation }></input>
+            </section>
+          </section>
         </section>
 
         <section className="workout-form-section">
-          <label>Description</label>
-          <textarea className="workout-description" rows="10" cols="50"
-            onChange={ this.update('description') }
-            value={ this.state.description }></textarea>
-
-          <button onClick={ this.handleSubmit }>Create Workout</button>
+          <section className="workout-attr">
+            <label>Description</label>
+            <section className="attr-body">
+              <textarea className="workout-description" rows="10" cols="50"
+                onChange={ this.update('description') }
+                value={ this.state.description }></textarea>
+            </section>
+          </section>
         </section>
+
+        <button onClick={ this.handleSubmit }>Create Workout</button>
       </div>
     );
   }
