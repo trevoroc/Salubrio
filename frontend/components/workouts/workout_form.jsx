@@ -102,6 +102,7 @@ class WorkoutForm extends React.Component {
               <input type="number" className="workout-distance"
                 onChange={ this.update('distance') }
                 value={ this.state.distance }></input>
+              <div className="units">miles</div>
             </section>
           </section>
 
@@ -111,6 +112,7 @@ class WorkoutForm extends React.Component {
               <input type="number" className="workout-elevation"
                 onChange={ this.update('elevation') }
                 value={ this.state.elevation }></input>
+              <div className="units">ft</div>
             </section>
           </section>
         </section>
