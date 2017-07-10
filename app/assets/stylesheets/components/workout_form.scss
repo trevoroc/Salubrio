@@ -15,10 +15,10 @@
   background-color: white;
 
   width: 1000px;
-  margin-left: 15%;
-  padding: 3% 5% 5% 5%;
+  margin-left: 17%;
+  padding: 0 50px 5% 50px;
   bottom: 0;
-  top: 58px;
+  top: 20%;
 
   font-family: $opensans;
   font-size: 15px;
@@ -33,10 +33,18 @@
   z-index: 1;
 }
 
-.workout-form h1 {
-  margin-top: 40px;
+.workout-form-header {
+  position: absolute;
+  top: 11%;
+  left: 20%;
 
-  font-size: 26px;
+  color: white;
+
+  font-family: $opensans;
+  font-size: 30px;
+  font-weight: bold;
+
+  z-index: 2;
 }
 
 .workout-form-section {
