@@ -1,15 +1,36 @@
 @import "../base/fonts.scss";
+@import "../base/colors.scss";
 
 // Stylesheet for a new workout form
 
+.workout-form-wrapper {
+  display: flex;
+}
+
 .workout-form {
   display: flex;
+  position: absolute;
   flex-direction: column;
+
+  background-color: white;
+
+  width: 1000px;
+  margin-left: 15%;
+  padding: 3% 5% 5% 5%;
+  bottom: 0;
+  top: 58px;
 
   font-family: $opensans;
   font-size: 15px;
 
-  margin: 0 20% 0 20%;
+  z-index: 2;
+}
+
+.form-background {
+  max-width: 100%;
+  max-height: 100%;
+
+  z-index: 1;
 }
 
 .workout-form h1 {
@@ -46,8 +67,10 @@
   border: 1px solid lightgrey;
   border-radius: 1px;
   padding: 5px;
+}
 
-  // width: 100%;
+.short {
+  width: 85px;
 }
 
 .workout-description {
@@ -60,6 +83,20 @@
 
 .workout-form button {
   font-family: $cabin;
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+
+  border-radius: 5px;
+
+  margin: 20px 0 0 10px;
+  padding: 5px 20px;
+
+  width: 16%;
+
+  background-color: $kaiser-blue;
+
+  text-align: center;
 }
 
 .units {
