@@ -53,7 +53,7 @@ class WorkoutForm extends React.Component {
   render() {
     return (
       <div className="workout-form-wrapper">
-        <img className="form-background" src="/splash-banner-3.png" />
+        <img className="form-background" src="/splash-banner-2.png" />
         <h1 className="workout-form-header">New Workout</h1>
         <div className="workout-form">
 
